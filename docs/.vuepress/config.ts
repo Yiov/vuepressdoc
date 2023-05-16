@@ -105,9 +105,9 @@ export default {
   plugins: [
     //docsearch配置
     docsearchPlugin({
-      appId: '38R2J3MTQC',
-      apiKey: '9e2835e9f16beb532105e35bd97e922b',
-      indexName: 'vuepress',
+      appId: '',
+      apiKey: '',
+      indexName: '',
       locales: {
         '/': {
           placeholder: '搜索文档',
