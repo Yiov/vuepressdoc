@@ -418,6 +418,13 @@ export default {
 
 ![](./vuepress-38.png)
 
+::: tip 说明
+其他徽标：
+
+https://github.com/Ileriayo/markdown-badges
+
+https://github.com/Envoy-VC/awesome-badges
+:::
 
 
 ## 组件替换
