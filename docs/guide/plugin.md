@@ -1,7 +1,7 @@
 # 插件
 
 ::: warning 更新时间
-最近更新：2023-5-14
+最近更新：2023-6-4
 
 搭建版本：v2.0-beta.61
 :::
@@ -9,8 +9,6 @@
 ### 谷歌分析
 
 利用插件 [google-analytics](https://analytics.google.com/) ，来查看网站访问量
-
-安装，不要把npm改成其他
 
 
 :::: code-group
@@ -115,8 +113,8 @@ export default {
   //========docsearch配置========//
   plugins: [
     docsearchPlugin({
-      appId: '<APP_ID/Application ID>',
-      apiKey: '<API_KEY/Search-Only API Key>',
+      appId: '<Application ID>',
+      apiKey: '<Search-Only API Key>',
       indexName: '<INDEX_NAME>',
       locales: {
         '/': {
@@ -177,14 +175,20 @@ DocSearch官网：[https://docsearch.algolia.com/](https://docsearch.algolia.com
 没有注册过的会给我们一个邀请链接，打开并注册账号
 
 ::: warning 另外
-这里的appid、apikey和indexname我们可以填入`config.ts`
+这里的appid、indexname我们可以填入 `config.ts`
+
+但是apikey这个没用，需要 `Search-Only API Key` 我们一会再填
 :::
 
 ![](./vuepress-52.png)
 
-但是我们还是无法搜索，进入[Algolia官网](https://www.algolia.com/)，点 `Search` - `index`
+通过邀请链接注册并登录进[Algolia官网](https://www.algolia.com/)，点 `Search` - `index`
 
 由于官方已经帮我们创建了 `Application` ，我们直接点接受即可
+
+::: tip 说明
+没有弹按钮的，去邮箱复制邀请链接打开就有了
+:::
 
 ![](./vuepress-53.png)
 
@@ -215,31 +219,63 @@ DocSearch官网：[https://docsearch.algolia.com/](https://docsearch.algolia.com
 点 `Editor` 进来发现了问题，这里多了一个 `/doc` 
 
 ::: warning 注意
-这里只要确保你的网址都是对的，其他都不要改
+除了指定位置，其他不要乱改，特别是apikey不要改！和你申请的apikey不是同一个用途
 
-特别是apikey不要改！和你申请的apikey不是同一个用途
+如果你网址有别名解析或者重定向了，就不能用了，只能用你申请时的网址
 :::
 
 ![](./vuepress-58.png)
 
-改过之后点 `Runtest` 测试一下，records有值就是没问题了
+改过之后点 `Runtest` 测试一下，records还是没有值
 
-点保存，再重新在Overview爬取即可
+原来是class标签不对，用审查元素看了下page也的class是 theme-default-content
+
+![](./vuepress-59.png)
+
+那我们将原来的 `.content_default` 全部替换成 `.theme-default-content` 即可
+
+
+![](./vuepress-60.png)
+
+再次 `Run test`，可以在 Search Preview 里可以搜素看看
+
+![](./vuepress-61.png)
+
+
+没问题了点保存，再重新在Overview重新爬取，Records有值就代表OK了
+
+![](./vuepress-62.png)
+
+点击index回到algolia，看数据是否同步过来
+
+![](./vuepress-63.png)
+
+
+
+最后，回到主页查看API KEYS，这里我们将 `Search API Key` 填入 `config.ts` 
+
+![](./vuepress-64.png)
+
+![](./vuepress-65.png)
+
+
+本地搜索一下，可以使用了
 
 ::: tip 说明
 如果还是不行，就对照 [vuepress文档](https://v2.vuepress.vuejs.org/zh/reference/plugin/docsearch.html#%E8%8E%B7%E5%8F%96%E6%90%9C%E7%B4%A2%E7%B4%A2%E5%BC%95) 挨个试
 
-免费的东西自然是问题多
+免费的东西自然是费脑筋
 :::
 
-![](./vuepress-59.png)
+![](./vuepress-66.png)
 
 
 
 
-### 自行搭建
 
-步骤有点繁琐，有点耐心看，我都一步步截图了
+### 自行爬取
+
+有点耐心看，我都一步步截图了
 
 [Algolia官网](https://www.algolia.com/) 注册并登录账号
 
@@ -248,7 +284,7 @@ DocSearch官网：[https://docsearch.algolia.com/](https://docsearch.algolia.com
 :::
 
 
-![](./vuepress-60.png)
+![](./vuepress-67.png)
 
 
 注册好后，我们在设置里新建一个Application
@@ -257,14 +293,13 @@ DocSearch官网：[https://docsearch.algolia.com/](https://docsearch.algolia.com
 系统会默认给我们建一个，也是可以用的
 :::
 
-![](./vuepress-61.png)
-
-
 创建一个新的应用程序 Applications - Create Application
 
-![](./vuepress-62.png)
+![](./vuepress-68.png)
 
-![](./vuepress-63.png)
+![](./vuepress-69.png)
+
+![](./vuepress-70.png)
 
 名称随便，选择 `Free` 免费的方案，下一步
 
@@ -272,27 +307,33 @@ DocSearch官网：[https://docsearch.algolia.com/](https://docsearch.algolia.com
 爬虫每月1万次，足够用了
 :::
 
-![](./vuepress-64.png)
+![](./vuepress-71.png)
 
 这里只能选择默认了，香港这些数据中心都不能选择
 
-![](./vuepress-65.png)
+::: tip 说明
+香港的只能通过申请，官方给你配，不过即便是美国实测搜索也慢不了多少
+:::
+
+![](./vuepress-72.png)
 
 
 勾选同意，创建即可
 
-![](./vuepress-66.png)
+![](./vuepress-73.png)
 
 这样就完成了
 
-![](./vuepress-67.png)
+![](./vuepress-74.png)
 
 
 创建索引，右下角选择 Date Sources - Indices - Create Index
 
-![](./vuepress-68.png)
+![](./vuepress-75.png)
 
-![](./vuepress-69.png)
+这个就是我们的索引名，即 indexName ，后面会用到
+
+![](./vuepress-76.png)
 
 
 
@@ -306,18 +347,24 @@ Application ID：应用ID
 Search-Only API Key：搜索API
 
 Admin API Key：管理API
+
+indexName：索引名
 :::
 
 
-![](./vuepress-70.png)
+![](./vuepress-77.png)
 
-![](./vuepress-71.png)
+![](./vuepress-78.png)
 
 
 最后就是爬取索引了，二选一
 
+::: tip 说明
+我就是被这个整崩溃了，爬取的索引就是用不了，累计耗时半个月，才搞清里面的逻辑
+:::
 
-:::: details Docker爬取索引
+
+:::: details Docker 爬取索引
 
 我用了 [虚拟机](https://yiov.github.io/website/VMware) 安装了 [docker](https://yiov.github.io/website/docker)，进 [宝塔](https://yiov.github.io/website/BT) 根目录 `root`文件夹
 
@@ -327,63 +374,125 @@ Admin API Key：管理API
 名字随便，只要自己记得住就行
 :::
 
-![](./vuepress-72.png)
+![](./vuepress-79.png)
 
 新建一个 `.env` 环境变量文件，并填入相应值
 
 ```env
 APPLICATION_ID=你的Application ID
-API_KEY=你的Admin API Key不是search
+API_KEY=你的Admin API Key(非Search)
 ```
 
-![](./vuepress-73.png)
+![](./vuepress-80.png)
 
 
 安装 [jq](https://repology.org/project/jq/versions) 一款json解析工具
 
 ```sh
+#安装jq
 yum install jq -y
 
 #版本查询
 jq --version
 ```
 
-![](./vuepress-74.png)
+![](./vuepress-81.png)
 
 
-在宝塔docsearch目录里新建 `config.json` 文件，用于爬虫的配置，根据提示修改好自己的链接
+在docsearch目录里新建 `config.json` 文件，用于爬虫的配置，根据提示修改好自己的链接
 
-::: warning 注意
-`recordProps` 是用于默认主题的配置，你可以根据你使用的主题来修改
+::: tip 说明
+当时就是卡在这里了，网上的版本尝试了无数次都不行,于是对照着 [algolia官方旧文档](https://docsearch.algolia.com/docs/legacy/run-your-own/) 挨个试
 
-`initialIndexSettings.YOUR_INDEX_NAME.attributesForFaceting` 字段必须包含 `lang`，否则该插件将无法正常工作
+最后审查元素发现，有个facetFliter里有个lang， 同时vuepress官方也指出 `attributesForFaceting` 必须包含 `lang` 否则无法使用
+:::
+
+![](./vuepress-82.png)
+
+```json
+{
+  "index_name": "你的索引名",
+  "start_urls": [
+    "https://你的网址.com/"
+  ],
+  "stop_urls": [""],
+  "selectors": {
+    "lvl0": {
+      "selector": ".sidebar-heading.active",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content h2",
+    "lvl3": ".theme-default-content h3",
+    "lvl4": ".theme-default-content h4",
+    "lvl5": ".theme-default-content h5",
+    "text": ".theme-default-content p, .theme-default-content li",
+    "lang": {
+      "selector": "/html/@lang",
+      "type": "xpath",
+      "global": true
+    }
+  },
+  "custom_settings": {
+    "attributesForFaceting": [
+      "lang"
+    ]
+  }
+}
+```
+
+
+只需要修改 `index_name` 和 `startUrls` 其余选项可保持默认
+
+::: tip 说明
+`stop_urls` 表示的是爬虫爬取的链接
+
+因为我的vuepress单独做了索引，不需要就屏蔽掉了
 :::
 
 
+![](./vuepress-83.png)
 
-只需要修改 `startUrls` 和 `index_name` 其余选项可保持默认
+
+至此我们的前期工作就准备好了，开始爬数据
+
+![](./vuepress-84.png)
+
+现在我们拉取镜像并运行爬虫
+
 
 ::: tip 说明
-startUrls就是你的网站地址
-:::
+格式：docker run -it --env-file=`你的env路径` -e "CONFIG=$(cat `你的配置json路径` | jq -r tostring)" algolia/docsearch-scraper`
 
-拉取镜像并运行爬虫
-
-::: tip 说明
-这里的  `env` 和 `cat` 两个路径，根据自己的改文件路径
-
-格式：`docker run -it --env-file=你的env路径 -e "CONFIG=$(cat 你的配置json路径 | jq -r tostring)" algolia/docsearch-scraper`
+比如我，都放在了root目录里的docsearch文件夹里，自己按需修改文件路径
 :::
 
 ```sh
 docker run -it --env-file=/root/docsearch/.env -e "CONFIG=$(cat /root/docsearch/config.json | jq -r tostring)" algolia/docsearch-scraper
 ```
 
+![](./vuepress-85.png)
 
 
+回到Algolia看到数据已经有了
 
+::: warning 注意
+这里成功了会有个 `lang：zh_CN`，否则有数据也用不了
+:::
+
+![](./vuepress-86.png)
+
+在 `config.ts` 填上数据后，搜索一次看下成果
+
+![](./vuepress-87.png)
 
 ::::
+
+
+
+
+
 
 
 
@@ -393,3 +502,157 @@ docker run -it --env-file=/root/docsearch/.env -e "CONFIG=$(cat /root/docsearch/
 
 
 
+### 索引美化
+
+这是官网原文档的索引，有明显的分类，很美观
+
+
+折腾了半天发现，并没有解决
+
+找到了一个 [相对完善的解答：@How to setup Algolia DocSearch](https://www.howtocode.io/posts/algolia/how-to-setup-algolia-doc-search#doc-search-config) ，但是依然没搞定，这个放在以后弄吧
+
+
+
+::: details 初步尝试 失败
+
+我们将在原本的 `start_urls` 和 `selectors` 里变更
+
+这里我们添加一个选择词 `selectors_key` 和标签
+
+```json{2-4,6-14}
+/* 原来的
+"start_urls": [
+  "https://yiov.github.io/"
+],
+*/
+//现在的，使用的时候删掉这段注释
+"start_urls": [
+    "https://yiov.github.io/",
+    {
+      "url": "https://yiov.github.io/gfw",
+      "selectors_key": "gfw",
+      "tags": ["gfw"]
+    }
+  ],
+```
+
+然后创建一个相对应的选择对象，并将 `selector` 留空， `default_value` 为搜索结果的标题
+
+::: warning 注意
+这里除了我创建的 `base` ，还有个 `default` ，是默认的必须要带，是搜索除了base以外的所有对象
+:::
+
+```json{2-19,22-54}
+/* 原来的
+"selectors": {
+    "lvl0": {
+      "selector": ".sidebar-heading.active",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content h2",
+    "lvl3": ".theme-default-content h3",
+    "lvl4": ".theme-default-content h4",
+    "lvl5": ".theme-default-content h5",
+    "text": ".theme-default-content p, .theme-default-content li",
+    "lang": {
+      "selector": "/html/@lang",
+      "type": "xpath",
+      "global": true
+    }
+  },
+*/
+//现在的，使用的时候删掉这段注释
+"selectors": {
+    "gfw": {
+      "lvl0": {
+        "selector": "  ",
+        "global": true,
+        "default_value": "科学上网"
+      },
+      "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content h2",
+    "lvl3": ".theme-default-content h3",
+    "lvl4": ".theme-default-content h4",
+    "lvl5": ".theme-default-content h5",
+    "text": ".theme-default-content p, .theme-default-content li"
+    },
+    "default": {
+      "lvl0": {
+        "selector": "",
+        "global": true,
+        "default_value": "文档"
+      },
+      "lvl1": ".theme-default-content h1",
+      "lvl2": ".theme-default-content h2",
+      "lvl3": ".theme-default-content h3",
+      "lvl4": ".theme-default-content h4",
+      "lvl5": ".theme-default-content h5",
+      "text": ".theme-default-content p, .theme-default-content li",
+      "lang": {
+        "selector": "/html/@lang",
+        "type": "xpath",
+        "global": true
+      }
+    }
+  },
+```
+:::
+
+
+
+
+
+### 样式美化
+
+你可以通过 [@docsearch/css](https://docsearch.algolia.com/docs/styling/) 提供的 CSS 变量来自定义样式
+
+如果你不懂方法，[可以参照样式美化的方法](http://localhost:8080/vuepress/guide/beautification.html#样式美化)
+
+```css
+:root {
+  --docsearch-primary-color: rgb(84, 104, 255);
+  --docsearch-text-color: rgb(28, 30, 33);
+  --docsearch-spacing: 12px;
+  --docsearch-icon-stroke-width: 1.4;
+  --docsearch-highlight-color: var(--docsearch-primary-color);
+  --docsearch-muted-color: rgb(150, 159, 175);
+  --docsearch-container-background: rgba(101, 108, 133, 0.8);
+  --docsearch-logo-color: rgba(84, 104, 255);
+
+  /* modal */
+  --docsearch-modal-width: 560px;
+  --docsearch-modal-height: 600px;
+  --docsearch-modal-background: rgb(245, 246, 247);
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.5), 0 3px
+      8px 0 rgba(85, 90, 100, 1);
+
+  /* searchbox */
+  --docsearch-searchbox-height: 56px;
+  --docsearch-searchbox-background: rgb(235, 237, 240);
+  --docsearch-searchbox-focus-background: #fff;
+  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
+
+  /* hit */
+  --docsearch-hit-height: 56px;
+  --docsearch-hit-color: rgb(68, 73, 80);
+  --docsearch-hit-active-color: #fff;
+  --docsearch-hit-background: #fff;
+  --docsearch-hit-shadow: 0 1px 3px 0 rgb(212, 217, 225);
+
+  /* key */
+  --docsearch-key-gradient: linear-gradient(
+    -225deg,
+    rgb(213, 219, 228) 0%,
+    rgb(248, 248, 248) 100%
+  );
+  --docsearch-key-shadow: inset 0 -2px 0 0 rgb(205, 205, 230), inset 0 0 1px 1px
+      #fff, 0 1px 2px 1px rgba(30, 35, 90, 0.4);
+
+  /* footer */
+  --docsearch-footer-height: 44px;
+  --docsearch-footer-background: #fff;
+  --docsearch-footer-shadow: 0 -1px 0 0 rgb(224, 227, 232), 0 -3px 6px 0 rgba(69, 98, 155, 0.12);
+}
+```
