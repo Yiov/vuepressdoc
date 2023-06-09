@@ -421,9 +421,9 @@ export default {
 ::: tip 说明
 其他徽标：
 
-https://github.com/Ileriayo/markdown-badges
+[https://github.com/Ileriayo/markdown-badges](https://github.com/Ileriayo/markdown-badges)
 
-https://github.com/Envoy-VC/awesome-badges
+[https://github.com/Envoy-VC/awesome-badges](https://github.com/Envoy-VC/awesome-badges)
 :::
 
 
