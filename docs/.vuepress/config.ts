@@ -17,10 +17,25 @@ export default {
   //========logo路径========//
   head: [['link', 
   //favicon图标
-  { rel: 'icon', href: '/vuepress2/images/logo.png' },
+  { rel: 'icon', href: '/vuepress/images/logo.png' },
   //自定义css样式
   //{ rel: 'stylesheet', href: '/styles/index.scss' },
   ]],
+
+  //========站点语言配置========//
+  locales: {
+    //默认语言可以使用 '/' 作为其路径。
+    '/': {
+      lang: 'zh-CN',
+      title: 'VuePress',
+      description: 'Vue 驱动的静态网站生成器',
+    },
+    '/en/': {
+      lang: 'en-US',
+      title: 'VuePress',
+      description: 'Vue-powered Static Site Generator',
+    },
+  },
 
   //========默认主题配置========//
   theme: defaultTheme({
@@ -66,6 +81,10 @@ export default {
           },
          ],
       },
+      {
+        text: 'GitHub',
+        link: 'https://github.com/Yiov/vuepressdoc',
+      },
     ],
 
     //侧边栏简化
@@ -85,29 +104,15 @@ export default {
     },
     
   }),
-
-  //========站点语言配置========//
-  locales: {
-    //默认语言可以使用 '/' 作为其路径。
-    '/': {
-      lang: 'zh-CN',
-      title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器',
-    },
-    '/en/': {
-      lang: 'en-US',
-      title: 'VuePress',
-      description: 'Vue-powered Static Site Generator',
-    },
-  },
   
   //========插件配置========//
   plugins: [
     //docsearch配置
     docsearchPlugin({
-      appId: '',
-      apiKey: '',
-      indexName: '',
+      appId: 'F6RYJMVN8K',
+      apiKey: 'a27586ba3f214fba3e7782735988691e',
+      indexName: 'vuepressyiov',
+      
       locales: {
         '/': {
           placeholder: '搜索文档',
