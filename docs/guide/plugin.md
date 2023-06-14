@@ -446,7 +446,7 @@ jq --version
 只需要修改 `index_name` 和 `startUrls` 其余选项可保持默认
 
 ::: tip 说明
-`stop_urls` 表示的是爬虫爬取的链接
+`stop_urls` 表示的是爬虫不爬取的链接
 
 因为我的vuepress单独做了索引，不需要就屏蔽掉了
 :::
@@ -506,6 +506,7 @@ docker run -it --env-file=/root/docsearch/.env -e "CONFIG=$(cat /root/docsearch/
 
 这是官网原文档的索引，有明显的分类，很美观
 
+![](./vuepress-88.png)
 
 折腾了半天发现，并没有解决
 
@@ -513,7 +514,7 @@ docker run -it --env-file=/root/docsearch/.env -e "CONFIG=$(cat /root/docsearch/
 
 
 
-::: details 初步尝试 失败
+:::: details 初步尝试 失败
 
 我们将在原本的 `start_urls` 和 `selectors` 里变更
 
@@ -539,7 +540,7 @@ docker run -it --env-file=/root/docsearch/.env -e "CONFIG=$(cat /root/docsearch/
 然后创建一个相对应的选择对象，并将 `selector` 留空， `default_value` 为搜索结果的标题
 
 ::: warning 注意
-这里除了我创建的 `base` ，还有个 `default` ，是默认的必须要带，是搜索除了base以外的所有对象
+这里除了我创建的 `gfw` ，还有个 `default` ，是默认的必须要带，是搜索除了gfw以外的所有对象
 :::
 
 ```json{2-19,22-54}
@@ -598,7 +599,7 @@ docker run -it --env-file=/root/docsearch/.env -e "CONFIG=$(cat /root/docsearch/
     }
   },
 ```
-:::
+::::
 
 
 
