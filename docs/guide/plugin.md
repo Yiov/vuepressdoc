@@ -144,12 +144,12 @@ export default {
 ![](./vuepress-48.png)
 
 
-DocSearch有2种模式，`免费申请` 和 `自行搭建`
+DocSearch有2种模式，[免费申请](#免费申请) 和 [自行爬取](#自行爬取前准备)
 
 ::: tip 区别
 免费申请：可使用algolia官方的爬虫，但是需要提交公开仓库代码链接
 
-自行搭建：需自行搭建爬虫，不需要提交仓库代码链接
+自行爬取：需自行搭建爬虫，不需要提交仓库代码链接
 :::
 
 ### 免费申请
@@ -409,7 +409,7 @@ jq --version
 
 ![](./vuepress-82.png)
 
-```json
+```json{2,4}
 {
   "index_name": "你的索引名",
   "start_urls": [
@@ -549,7 +549,7 @@ on:
 :::
 
 
-```yml{3-6}
+```yml{4-8}
 # 名字可以自己取
 name: docsearch
 
@@ -591,7 +591,7 @@ jobs:
 ![](./vuepress-91.png)
 
 
-然后再根目录新建一个 `docsearch.json` 文件，复制粘贴并提交
+然后在根目录新建一个 `docsearch.json` 文件，复制粘贴并提交
 
 ::: tip 说明
 记得把索引和网址都改成自己的
@@ -599,7 +599,7 @@ jobs:
 
 ![](./vuepress-92.png)
 
-```json
+```json{2,4}
 {
   "index_name": "你的索引名",
   "start_urls": [
