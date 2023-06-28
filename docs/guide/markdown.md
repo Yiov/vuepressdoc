@@ -1,9 +1,9 @@
 # Markdown
 
 ::: warning 更新时间
-最近更新：2023-4-8
+最近更新：2023-6-28
 
-搭建版本：v2.0-beta.61
+搭建版本：v2.0-beta.63
 :::
 
 如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.github.io/daily/markdown/)
