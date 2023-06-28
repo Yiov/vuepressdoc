@@ -608,40 +608,7 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 
 ### markdown高亮
 
-使用内置插件 `Prism.js` 来为 Markdown 代码块启用高亮
-
-> 测试的时候是内置的，没有我们就来安装一下
-
-
-:::: code-group
-::: code-group-item pnpm
-```sh
-#安装pnpm
-pnpm i -D @vuepress/plugin-prismjs@next
-```
-:::
-::: code-group-item yarn
-```sh
-#默认npm不要改成yarn
-npm i -D @vuepress/plugin-prismjs@next
-```
-:::
-::::
-
-
-```ts{1,5-8}
-import { prismjsPlugin } from '@vuepress/plugin-prismjs'
-
-export default {
-  plugins: [
-    //markdown代码高亮配置
-    prismjsPlugin({
-      preloadLanguages:['markdown', 'jsdoc', 'yaml']
-    }),
-  ],
-}
-```
-
+[点我跳转至：插件](./plugin.md#markdown高亮) 查看安装使用方法
 
 
 ### vue模板语法
