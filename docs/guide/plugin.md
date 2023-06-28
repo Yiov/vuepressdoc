@@ -8,7 +8,93 @@
 
 ## markdown高亮
 
-请查看之前介绍的 [markdown高亮](./markdown.md#markdown高亮) 步骤
+使用内置插件 `Prism.js` 来为 Markdown 代码块启用高亮
+
+> 测试的时候是内置的，没有我们就来安装一下
+
+
+:::: code-group
+::: code-group-item pnpm
+```sh
+#安装pnpm
+pnpm i -D @vuepress/plugin-prismjs@next
+```
+:::
+::: code-group-item yarn
+```sh
+#默认npm不要改成yarn
+npm i -D @vuepress/plugin-prismjs@next
+```
+:::
+::::
+
+
+```ts{1,5-8}
+import { prismjsPlugin } from '@vuepress/plugin-prismjs'
+
+export default {
+  plugins: [
+    //markdown代码高亮配置
+    prismjsPlugin({
+      preloadLanguages:['markdown', 'jsdoc', 'yaml']
+    }),
+  ],
+}
+```
+
+
+
+
+## external-link-icon
+
+默认主题中会为Markdown内容中的外部链接添加一个图标
+
+但是我们在复制链接的时候就会出现多余的文字
+
+::: tip 比如
+[Github](https://github.com/) 复制出来是 `GitHub open in new window`
+
+怎么删除后面这个open in new window呢
+:::
+
+我们需要安装插件后进行配置，安装
+
+:::: code-group
+::: code-group-item pnpm
+```sh
+pnpm i -D @vuepress/plugin-external-link-icon@next
+```
+:::
+::: code-group-item yarn
+```sh
+npm i -D @vuepress/plugin-external-link-icon@next
+```
+:::
+::::
+
+
+::: tip 说明
+引号内留空就可以了，除非你想个性化
+:::
+
+```ts{1,5-14}
+import { externalLinkIconPlugin } from '@vuepress/plugin-external-link-icon'
+
+export default {
+  plugins: [
+    externalLinkIconPlugin({
+      locales: {
+        '/': {
+          openInNewWindow: '在新窗口打开',
+        },
+        '/en/': {
+          openInNewWindow: 'open in new window',
+        },
+      },
+    }),
+  ],
+}
+```
 
 
 ## 谷歌分析
