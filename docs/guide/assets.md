@@ -1,9 +1,9 @@
 # 静态部署
 
 ::: warning 更新时间
-最近更新：2023-5-14
+最近更新：2023-6-28
 
-搭建版本：v2.0-beta.61
+搭建版本：v2.0-beta.63
 :::
 
 主要讲一下github，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://v2.vuepress.vuejs.org/zh/guide/deployment.html)
