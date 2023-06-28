@@ -1,12 +1,17 @@
 # 插件
 
 ::: warning 更新时间
-最近更新：2023-6-17
+最近更新：2023-6-28
 
-搭建版本：v2.0-beta.61
+搭建版本：v2.0-beta.63
 :::
 
-### 谷歌分析
+## markdown高亮
+
+请查看之前介绍的 [markdown高亮](./markdown.md#markdown高亮) 步骤
+
+
+## 谷歌分析
 
 利用插件 [google-analytics](https://analytics.google.com/) ，来查看网站访问量
 
@@ -88,13 +93,13 @@ export default {
 ::: code-group-item pnpm
 ```sh
 #这里是pnpm 新增@algolia/client-search
-pnpm i -D @vuepress/plugin-docsearch@next @algolia/client-search
+pnpm i -D @vuepress/plugin-docsearch@next @algolia/client-search search-insights
 ```
 :::
 ::: code-group-item yarn
 ```sh
 #这里就是npm，是yarn也不要自己改
-npm i -D @vuepress/plugin-docsearch@next
+npm i -D @vuepress/plugin-docsearch@next @algolia/client-search search-insights
 ```
 :::
 ::::
