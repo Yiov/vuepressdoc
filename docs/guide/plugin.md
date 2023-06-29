@@ -1,10 +1,23 @@
 # 插件
 
 ::: warning 更新时间
-最近更新：2023-6-28
+最近更新：2023-6-29
 
 搭建版本：v2.0-beta.63
 :::
+
+
+::: danger 特别说明
+如果插件无法引入import，尝试解决
+
+1.关闭vscode后再打开
+
+2.尝试删除 `node_modules` 文件夹后，重新安装依赖，再次安装插件
+
+3.看安装版本是否一致，不一致在 `package.json` 修改后，尝试第2步
+:::
+
+
 
 ## markdown高亮
 
@@ -16,13 +29,16 @@
 :::: code-group
 ::: code-group-item pnpm
 ```sh
-#安装pnpm
-pnpm i -D @vuepress/plugin-prismjs@next
+pnpm add -D @vuepress/plugin-prismjs@next
 ```
 :::
 ::: code-group-item yarn
 ```sh
-#默认npm不要改成yarn
+yarn add -D @vuepress/plugin-prismjs@next
+```
+:::
+::: code-group-item npm
+```sh
 npm i -D @vuepress/plugin-prismjs@next
 ```
 :::
@@ -45,11 +61,9 @@ export default {
 
 
 
-## external-link-icon
+## 删除复制链接文字
 
-默认主题中会为Markdown内容中的外部链接添加一个图标
-
-但是我们在复制链接的时候就会出现多余的文字
+默认主题中，我们复制站外链接文字会出现多余的文字
 
 ::: tip 比如
 [Github](https://github.com/) 复制出来是 `GitHub open in new window`
@@ -62,10 +76,15 @@ export default {
 :::: code-group
 ::: code-group-item pnpm
 ```sh
-pnpm i -D @vuepress/plugin-external-link-icon@next
+pnpm add -D @vuepress/plugin-external-link-icon@next
 ```
 :::
 ::: code-group-item yarn
+```sh
+yarn add -D @vuepress/plugin-external-link-icon@next
+```
+:::
+::: code-group-item npm
 ```sh
 npm i -D @vuepress/plugin-external-link-icon@next
 ```
@@ -105,10 +124,15 @@ export default {
 :::: code-group
 ::: code-group-item pnpm
 ```sh
-pnpm i -D @vuepress/plugin-google-analytics@next
+pnpm add -D @vuepress/plugin-google-analytics@next
 ```
 :::
 ::: code-group-item yarn
+```sh
+yarn add -D @vuepress/plugin-google-analytics@next
+```
+:::
+::: code-group-item npm
 ```sh
 npm i -D @vuepress/plugin-google-analytics@next
 ```
@@ -179,12 +203,18 @@ export default {
 ::: code-group-item pnpm
 ```sh
 #这里是pnpm 新增@algolia/client-search
-pnpm i -D @vuepress/plugin-docsearch@next @algolia/client-search search-insights
+pnpm add -D @vuepress/plugin-docsearch@next @algolia/client-search search-insights
 ```
 :::
 ::: code-group-item yarn
 ```sh
-#这里就是npm，是yarn也不要自己改
+#这里是yarn 新增@algolia/client-search
+yarn add -D @vuepress/plugin-docsearch@next @algolia/client-search search-insights
+```
+:::
+::: code-group-item npm
+```sh
+#这里是npm 新增@algolia/client-search
 npm i -D @vuepress/plugin-docsearch@next @algolia/client-search search-insights
 ```
 :::
@@ -908,3 +938,107 @@ API_KEY是 [algolia](https://www.algolia.com/) 的 `Admin API Key`
   --docsearch-footer-shadow: 0 -1px 0 0 rgb(224, 227, 232), 0 -3px 6px 0 rgba(69, 98, 155, 0.12);
 }
 ```
+
+
+## 复制代码块
+
+默认主题没有添加这个功能，我们可以用第三方插件
+
+官网：[https://plugin-copy-code2.vuejs.press/zh/](https://plugin-copy-code2.vuejs.press/zh/)
+
+安装
+
+:::: code-group
+::: code-group-item pnpm
+```sh
+pnpm add -D vuepress-plugin-copy-code2
+```
+:::
+::: code-group-item yarn
+```sh
+yarn add -D vuepress-plugin-copy-code2
+```
+:::
+::: code-group-item npm
+```sh
+npm i -D vuepress-plugin-copy-code2
+```
+:::
+::::
+
+
+
+
+
+```ts{1,5-7}
+import { copyCodePlugin } from 'vuepress-plugin-copy-code2'
+
+export default {
+  plugins: [
+    copyCodePlugin({
+      // 插件选项
+    }),
+  ],
+};
+```
+
+![](./vuepress-100.png)
+
+
+## 更多其他插件
+
+其他第三方插件：[https://github.com/vuepress/awesome-vuepress/blob/main/v2.md](https://github.com/vuepress/awesome-vuepress/blob/main/v2.md)
+
+::: tip 建议
+更多插件请进原文档查看，本列表仅复制而来
+:::
+
+- [vuepress-plugin-blog2](https://plugin-blog2.vuejs.press): VuePress2 Blog plugin📝 facing theme developers
+- [vuepress-plugin-comment2](https://plugin-comment2.vuejs.press): VuePress2 comment plugin💬, supports Giscus, Twikoo and Waline.
+- [vuepress-plugin-components](https://plugin-components.vuejs.press): Markdown components out of box🧩
+- [vuepress-plugin-copy-code2](https://plugin-copy-code2.vuejs.press): VuePress2 copy code plugin📋, provide copy button for code blocks.
+- [vuepress-plugin-copyright2](https://plugin-copyright2.vuejs.press): VuePress2 copyright plugin📋
+
+  Append copyright information while copying, also supports disabling copying and selection.
+
+- [vuepress-plugin-feed2](https://plugin-feed2.vuejs.press): VuePress2 feed plugin 📡, supporting atom, json and rss syntax feeds
+- [vuepress-plugin-md-enhance](https://plugin-md-enhance.vuejs.press/): VuePress2 Markdown enhancement plugin📄
+
+  Fully tree-shakable, features including attrs, tabs, code tabs, hint boxes, footnote, mark, subscript, superscript, snippets, imageTitle, imageLazyload, imageSize, imageMark, custom alignment, task lists, chart.js, flowchart.js, katex, mathjax, diagrams (mermaid), slides (reveal.js), playground, vue playground, code demos, etc.
+
+- [vuepress-plugin-photo-swipe](https://plugin-photo-swipe.vuejs.press/): VuePress2 photo preview plugin🔍 based on `photo-swipe`
+- [vuepress-plugin-pwa2](https://plugin-pwa2.vuejs.press/): VuePress2 PWA plugin📦, an improved edition over the official one.
+- [vuepress-plugin-reading-time2](https://plugin-reading-time2.vuejs.press/): VuePress2 reading time plugin⏳
+- [vuepress-plugin-redirect](https://plugin-redirect.vuejs.press/): VuePress2 redirect plugin↩️, performing automatically redirects from old links to new ones
+- [vuepress-plugin-sass-palette](https://plugin-sass-palette.vuejs.press/): VuePress2 palette plugin for sass🎨, an improved edition over the official one.
+- [vuepress-plugin-search-pro](https://plugin-search-pro.vuejs.press/): VuePress2 plugin to provide client search, an improved edition over the official one.
+- [vuepress-plugin-seo2](https://plugin-seo2.vuejs.press/): VuePress2 SEO plugin🛠, supports OGP and JSON-LD
+- [vuepress-plugin-sitemap2](https://plugin-sitemap2.vuejs.press/): VuePress2 Sitemap plugin🗺️
+- [vuepress-plugin-lightgallery](https://plugin-lightgallery.vuejs.press): Light Gallery plugin for VuePress2 (to provide image preview)
+- [vuepress-plugin-use-pages](https://github.com/monsat/vuepress-plugin-use-pages) - VuePress2 plugin that helps you use array of all PagesData in your doc.
+- [@snippetors/vuepress-plugin-tabs](https://www.npmjs.com/package/@snippetors/vuepress-plugin-tabs) - VuePress2 plugin which renders custom markdown containers as tabs, for vuepress v2.x
+- [vuepress-plugin-archive](https://www.npmjs.com/package/vuepress-plugin-archive) - VuePress2 plugin that add article archiving and timeline functions to the site, for vuepress v2.x
+- [vuepress-plugin-netabare-switch](https://github.com/monsat/vuepress-plugin-netabare-switch) - VuePress2 plugin to add toggle switch for spoilers.
+- [vuepress-plugin-china-search-console](https://vuepress.qbb.sh/china-search-console/) - 🌐 VuePress2 plugin to enhance china seo | include **baidu tongji (analytics)**, baidu auto push, 360 autopush, tiaotiao(ByteDance) autopush.
+- [vuepress-plugin-imagemin](https://github.com/yjl9903/vuepress-plugin-imagemin): VuePress2 plugin for compressing image assets.
+- [@goy/vuepress-plugin-svg-icons](https://github.com/ntnyq/vuepress-plugin-svg-icons): VuePress2 plugin for managing svg icons via svg sprite
+- [vuepress-plugin-social-share](https://github.com/ntnyq/vuepress-plugin-social-share/tree/next): VuePress2 plugin which provides social sharing services
+- [vuepress-plugin-iconify](https://github.com/ntnyq/vuepress-plugin-iconify): VuePress2 plugin make it easier to use icons in VuePress
+- [vuepress-plugin-netlify-functions](https://github.com/pengzhanbo/vuepress-theme-plume/tree/main/packages/plugin-netlify-functions) VuePress2 plugin to basis support for netlify functions when you want deploy to netlify and use netlify functions.
+- [vuepress-plugin-markdown-define2](https://github.com/justforuse/vuepress-plugin-markdown-define2): VuePress2 plugin to define variables in markdown.
+- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/tree/main/packages/vuepress-plugin-export-pdf-v2): VuePress2 plugin exports your website as a PDF file.
+- [vuepress-plugin-anchor-right](https://github.com/dingshaohua-cn/vuepress-plugin-anchor-right): VuePress2 plugin,It is used to generate the right navigation directory anchor!
+- [vuepress-plugin-open-graph](https://github.com/azat-io/vuepress-plugin-open-graph): Plugin for generating open graph meta tags
+- [vuepress-plugin-remove-html-extension](https://github.com/azat-io/vuepress-plugin-remove-html-extension): Plugin for generating clean urls
+- [vuepress-plugin-umami-analytics](https://github.com/azat-io/vuepress-plugin-umami-analytics): Plugin for using Umami analytics
+- [vuepress-plugin-alert](https://github.com/wuwb/vuepress-plugin-alert): Plugin for add site announcement on the top right corner.
+- [vuepress-plugin-blog-sync](https://github.com/flytam/vuepress-plugin-blog-sync): Input blog site info, generate VuePress2 site automatically | 输入网站基本信息，一键生成 VuePress2 文档站
+- [@cinar/wordpress-to-vuepress-migration](https://github.com/cinar/wordpress-to-vuepress-migration): WordPress to VuePress 2 migration script.
+- [vuepress-plugin-github-linkify](https://github.com/TheDragonCode/vuepress-plugin-github-linkify): Adding and fixing GitHub links
+
+
+- [vuepress-plugin-full-text-search2](https://github.com/ota-meshi/vuepress-plugin-full-text-search2): VuePress2 plugin that adds full-text search box.
+- [vuepress-plugin-mermaid-wrapper](https://github.com/azat-io/vuepress-plugin-mermaid-wrapper): Plugin for using Mermaid.js
+- [vuepress-plugin-clipboard](https://vuepress.qbb.sh/clipboard/): 🔘 VuePress2 plugin to generate **code copy button** | 代码块复制按钮
+- [@snippetors/vuepress-plugin-code-copy](https://www.npmjs.com/package/@snippetors/vuepress-plugin-code-copy) - VuePress2 plugin which provides a button to copy code block, for vuepress v2.x
+- [@yanyu-fe/vuepress-plugin-code-block](https://github.com/yanyu-fe/vuepress-plugins/tree/main/plugins/code-block) - VuePress2 plugin for used to generate component code blocks.
