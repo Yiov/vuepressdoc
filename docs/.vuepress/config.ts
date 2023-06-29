@@ -5,6 +5,7 @@ import { prismjsPlugin } from '@vuepress/plugin-prismjs'
 import { sidebarA } from './configs/index.js'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { externalLinkIconPlugin } from '@vuepress/plugin-external-link-icon'
+import { copyCodePlugin } from 'vuepress-plugin-copy-code2'
 
 const __dirname = getDirname(import.meta.url)
 
@@ -139,7 +140,7 @@ export default {
       preloadLanguages:['markdown', 'jsdoc', 'yaml']
     }),
 
-    /*外部链接复制文字更改
+    //外部链接复制文字更改
     externalLinkIconPlugin({
       locales: {
         '/': {
@@ -150,8 +151,11 @@ export default {
         },
       },
     }),
-    */
+    
 
+    copyCodePlugin({
+      // 插件选项
+    }),
 
 
   ],
