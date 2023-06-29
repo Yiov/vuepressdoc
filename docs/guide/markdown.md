@@ -234,10 +234,15 @@ export default {
 :::: code-group
 ::: code-group-item pnpm
 ```sh
-pnpm i -D @vuepress/utils@next
+pnpm add -D @vuepress/utils@next
 ```
 :::
 ::: code-group-item yarn
+```sh
+yarn add -D @vuepress/utils@next
+```
+:::
+::: code-group-item npm
 ```sh
 npm i -D @vuepress/utils@next
 ```
