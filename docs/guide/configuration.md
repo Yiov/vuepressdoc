@@ -2,7 +2,7 @@
 # 配置
 
 ::: warning 更新时间
-最近更新：2023-6-28
+最近更新：2023-7-3
 
 搭建版本：v2.0-beta.63
 :::
@@ -68,6 +68,12 @@ pnpm docs:dev
 yarn docs:dev
 ```
 :::
+::: code-group-item npm
+```sh
+#开发环境
+npm docs:dev
+```
+:::
 ::::
 
 ::: tip 使用说明
@@ -91,7 +97,7 @@ yarn docs:dev
 
 在 `package.json` 里添加
 
-```json
+```json{3-4}
 //绝对路径，my-config名称可以自己改
 "scripts": {
     "docs:dev": "vuepress dev docs --config doc/.vuepress/my-config.js",
@@ -115,7 +121,7 @@ vuepress dev docs --config my-config.js
 
 像我这种小白，基本很难用到了，有些代码基础的可以了解一下
 
-```
+```目录
 ├─ docs
 │  ├─ .vuepress
 │  │  ├─ client.ts   <--- 客户端配置文件
