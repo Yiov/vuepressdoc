@@ -1,7 +1,7 @@
 # Markdown
 
 ::: warning 更新时间
-最近更新：2023-6-28
+最近更新：2023-7-3
 
 搭建版本：v2.0-beta.63
 :::
@@ -37,7 +37,7 @@ export default {
 对于指向内部 Markdown 文件的链接，尽可能使用相对路径，而不是绝对路径
 :::
 
-```
+```目录
 ├─ docs
 │  ├─ .vuepress
 │  ├─ guide
@@ -477,6 +477,11 @@ pnpm init
 yarn init
 ```
 :::
+::: code-group-item npm
+```sh
+npm init
+```
+:::
 ::::
 ````
 
@@ -492,6 +497,11 @@ pnpm init
 ::: code-group-item yarn
 ```sh
 yarn init
+```
+:::
+::: code-group-item npm
+```sh
+npm init
 ```
 :::
 ::::
