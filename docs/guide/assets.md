@@ -1,7 +1,7 @@
 # 静态部署
 
 ::: warning 更新时间
-最近更新：2023-6-28
+最近更新：2023-7-3
 
 搭建版本：v2.0-beta.63
 :::
@@ -66,9 +66,9 @@ export default {
 
 
 ::: warning 注意
-经过反复测试，还是会出问题，于是弃用
+经过反复测试，还是没搞定，于是弃用了
 
-这是一个已经配置好的工作流
+这是一个已经配置好的工作流，自己记得删掉注释！！！
 
 实际是github分配了一个虚拟机给你使用，里面的ubuntu系统以及pnpm都是虚拟机使用的，与自己的无关，不要动就行
 :::
@@ -151,6 +151,11 @@ pnpm docs:build
 ::: code-group-item yarn
 ```sh
 yarn docs:build
+```
+:::
+::: code-group-item npm
+```sh
+npm docs:build
 ```
 :::
 ::::
