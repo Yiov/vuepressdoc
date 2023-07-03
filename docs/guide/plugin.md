@@ -1,7 +1,7 @@
 # 插件
 
 ::: warning 更新时间
-最近更新：2023-6-29
+最近更新：2023-7-3
 
 搭建版本：v2.0-beta.63
 :::
@@ -976,7 +976,7 @@ import { copyCodePlugin } from 'vuepress-plugin-copy-code2'
 export default {
   plugins: [
     copyCodePlugin({
-      // 插件选项
+      showInMobile: true, //是否显示在移动端
     }),
   ],
 };
@@ -993,52 +993,56 @@ export default {
 更多插件请进原文档查看，本列表仅复制而来
 :::
 
-- [vuepress-plugin-blog2](https://plugin-blog2.vuejs.press): VuePress2 Blog plugin📝 facing theme developers
-- [vuepress-plugin-comment2](https://plugin-comment2.vuejs.press): VuePress2 comment plugin💬, supports Giscus, Twikoo and Waline.
-- [vuepress-plugin-components](https://plugin-components.vuejs.press): Markdown components out of box🧩
-- [vuepress-plugin-copy-code2](https://plugin-copy-code2.vuejs.press): VuePress2 copy code plugin📋, provide copy button for code blocks.
-- [vuepress-plugin-copyright2](https://plugin-copyright2.vuejs.press): VuePress2 copyright plugin📋
+- [vuepress-plugin-blog2：博客插件](https://plugin-blog2.vuejs.press/zh/)
 
-  Append copyright information while copying, also supports disabling copying and selection.
+- [vuepress-plugin-comment2：评论插件](https://plugin-comment2.vuejs.press/zh/)
 
-- [vuepress-plugin-feed2](https://plugin-feed2.vuejs.press): VuePress2 feed plugin 📡, supporting atom, json and rss syntax feeds
-- [vuepress-plugin-md-enhance](https://plugin-md-enhance.vuejs.press/): VuePress2 Markdown enhancement plugin📄
+- [vuepress-plugin-components：组件库](https://plugin-components.vuejs.press/zh/)
 
-  Fully tree-shakable, features including attrs, tabs, code tabs, hint boxes, footnote, mark, subscript, superscript, snippets, imageTitle, imageLazyload, imageSize, imageMark, custom alignment, task lists, chart.js, flowchart.js, katex, mathjax, diagrams (mermaid), slides (reveal.js), playground, vue playground, code demos, etc.
+- [vuepress-plugin-copy-code2：复制代码块](https://plugin-copy-code2.vuejs.press/zh/)
 
-- [vuepress-plugin-photo-swipe](https://plugin-photo-swipe.vuejs.press/): VuePress2 photo preview plugin🔍 based on `photo-swipe`
-- [vuepress-plugin-pwa2](https://plugin-pwa2.vuejs.press/): VuePress2 PWA plugin📦, an improved edition over the official one.
-- [vuepress-plugin-reading-time2](https://plugin-reading-time2.vuejs.press/): VuePress2 reading time plugin⏳
-- [vuepress-plugin-redirect](https://plugin-redirect.vuejs.press/): VuePress2 redirect plugin↩️, performing automatically redirects from old links to new ones
-- [vuepress-plugin-sass-palette](https://plugin-sass-palette.vuejs.press/): VuePress2 palette plugin for sass🎨, an improved edition over the official one.
-- [vuepress-plugin-search-pro](https://plugin-search-pro.vuejs.press/): VuePress2 plugin to provide client search, an improved edition over the official one.
-- [vuepress-plugin-seo2](https://plugin-seo2.vuejs.press/): VuePress2 SEO plugin🛠, supports OGP and JSON-LD
-- [vuepress-plugin-sitemap2](https://plugin-sitemap2.vuejs.press/): VuePress2 Sitemap plugin🗺️
-- [vuepress-plugin-lightgallery](https://plugin-lightgallery.vuejs.press): Light Gallery plugin for VuePress2 (to provide image preview)
-- [vuepress-plugin-use-pages](https://github.com/monsat/vuepress-plugin-use-pages) - VuePress2 plugin that helps you use array of all PagesData in your doc.
-- [@snippetors/vuepress-plugin-tabs](https://www.npmjs.com/package/@snippetors/vuepress-plugin-tabs) - VuePress2 plugin which renders custom markdown containers as tabs, for vuepress v2.x
-- [vuepress-plugin-archive](https://www.npmjs.com/package/vuepress-plugin-archive) - VuePress2 plugin that add article archiving and timeline functions to the site, for vuepress v2.x
-- [vuepress-plugin-netabare-switch](https://github.com/monsat/vuepress-plugin-netabare-switch) - VuePress2 plugin to add toggle switch for spoilers.
-- [vuepress-plugin-china-search-console](https://vuepress.qbb.sh/china-search-console/) - 🌐 VuePress2 plugin to enhance china seo | include **baidu tongji (analytics)**, baidu auto push, 360 autopush, tiaotiao(ByteDance) autopush.
-- [vuepress-plugin-imagemin](https://github.com/yjl9903/vuepress-plugin-imagemin): VuePress2 plugin for compressing image assets.
-- [@goy/vuepress-plugin-svg-icons](https://github.com/ntnyq/vuepress-plugin-svg-icons): VuePress2 plugin for managing svg icons via svg sprite
-- [vuepress-plugin-social-share](https://github.com/ntnyq/vuepress-plugin-social-share/tree/next): VuePress2 plugin which provides social sharing services
-- [vuepress-plugin-iconify](https://github.com/ntnyq/vuepress-plugin-iconify): VuePress2 plugin make it easier to use icons in VuePress
-- [vuepress-plugin-netlify-functions](https://github.com/pengzhanbo/vuepress-theme-plume/tree/main/packages/plugin-netlify-functions) VuePress2 plugin to basis support for netlify functions when you want deploy to netlify and use netlify functions.
-- [vuepress-plugin-markdown-define2](https://github.com/justforuse/vuepress-plugin-markdown-define2): VuePress2 plugin to define variables in markdown.
-- [@condorhero/vuepress-plugin-export-pdf-v2](https://github.com/condorheroblog/vuepress-plugin/tree/main/packages/vuepress-plugin-export-pdf-v2): VuePress2 plugin exports your website as a PDF file.
-- [vuepress-plugin-anchor-right](https://github.com/dingshaohua-cn/vuepress-plugin-anchor-right): VuePress2 plugin,It is used to generate the right navigation directory anchor!
-- [vuepress-plugin-open-graph](https://github.com/azat-io/vuepress-plugin-open-graph): Plugin for generating open graph meta tags
-- [vuepress-plugin-remove-html-extension](https://github.com/azat-io/vuepress-plugin-remove-html-extension): Plugin for generating clean urls
-- [vuepress-plugin-umami-analytics](https://github.com/azat-io/vuepress-plugin-umami-analytics): Plugin for using Umami analytics
-- [vuepress-plugin-alert](https://github.com/wuwb/vuepress-plugin-alert): Plugin for add site announcement on the top right corner.
-- [vuepress-plugin-blog-sync](https://github.com/flytam/vuepress-plugin-blog-sync): Input blog site info, generate VuePress2 site automatically | 输入网站基本信息，一键生成 VuePress2 文档站
-- [@cinar/wordpress-to-vuepress-migration](https://github.com/cinar/wordpress-to-vuepress-migration): WordPress to VuePress 2 migration script.
-- [vuepress-plugin-github-linkify](https://github.com/TheDragonCode/vuepress-plugin-github-linkify): Adding and fixing GitHub links
+- [vuepress-plugin-copyright2：复制文字添加版权信息](https://plugin-copyright2.vuejs.press/zh/)
 
+- [vuepress-plugin-feed2：feed生成器RSS订阅](https://plugin-feed2.vuejs.press/zh/)
 
-- [vuepress-plugin-full-text-search2](https://github.com/ota-meshi/vuepress-plugin-full-text-search2): VuePress2 plugin that adds full-text search box.
-- [vuepress-plugin-mermaid-wrapper](https://github.com/azat-io/vuepress-plugin-mermaid-wrapper): Plugin for using Mermaid.js
-- [vuepress-plugin-clipboard](https://vuepress.qbb.sh/clipboard/): 🔘 VuePress2 plugin to generate **code copy button** | 代码块复制按钮
-- [@snippetors/vuepress-plugin-code-copy](https://www.npmjs.com/package/@snippetors/vuepress-plugin-code-copy) - VuePress2 plugin which provides a button to copy code block, for vuepress v2.x
-- [@yanyu-fe/vuepress-plugin-code-block](https://github.com/yanyu-fe/vuepress-plugins/tree/main/plugins/code-block) - VuePress2 plugin for used to generate component code blocks.
+- [vuepress-plugin-md-enhance：markdown增强，支持角标](https://plugin-md-enhance.vuejs.press/zh/)
+
+- [vuepress-plugin-photo-swipe：图片浏览](https://plugin-photo-swipe.vuejs.press/zh/)
+
+- [vuepress-plugin-pwa2：渐进式网页应用](https://plugin-pwa2.vuejs.press/zh/)
+
+- [vuepress-plugin-reading-time2：预计阅读时间生成](https://plugin-reading-time2.vuejs.press/zh/)
+
+- [vuepress-plugin-redirect：重定向插件](https://plugin-redirect.vuejs.press/zh/)
+
+- [vuepress-plugin-sass-palette：SASS调色板](https://plugin-sass-palette.vuejs.press/zh/)
+
+- [vuepress-plugin-search-pro：增强搜索](https://plugin-search-pro.vuejs.press/zh/)
+
+- [vuepress-plugin-seo2：SEO增强](https://plugin-seo2.vuejs.press/zh/)
+
+- [vuepress-plugin-sitemap2：站点地图生成](https://plugin-sitemap2.vuejs.press/zh/)
+
+- [vuepress-plugin-lightgallery：灯箱画廊插件](https://plugin-lightgallery.vuejs.press/zh/)
+
+---
+
+- [vuepress-plugin-anchor-right：生成右侧导航目录锚点](https://github.com/dingshaohua-cn/vuepress-plugin-anchor-right)
+
+- [vuepress-plugin-alert：网站添加通知公告](https://github.com/wuwb/vuepress-plugin-alert)
+
+- [vuepress-plugin-clipboard：代码块复制按钮](https://vuepress.qbb.sh/clipboard/)
+
+- [vuepress-plugin-svg-icons：使用SVG sprite图标](https://github.com/ntnyq/vuepress-plugin-svg-icons)
+
+- [vuepress-plugin-social-share：社交分享插件](https://github.com/ntnyq/vuepress-plugin-social-share)
+
+- [vuepress-plugin-iconify：轻松使用icons图标](https://github.com/ntnyq/vuepress-plugin-iconify)
+
+- [vuepress-plugin-netlify-functions：启动一个 netlify functions 本地服务](https://github.com/pengzhanbo/vuepress-theme-plume/tree/main/packages/plugin-netlify-functions) 
+
+- [vuepress-plugin-open-graph：生成graph标签](https://github.com/azat-io/vuepress-plugin-open-graph)
+
+- [vuepress-plugin-remove-html-extension：生成没有.html链接](https://github.com/azat-io/vuepress-plugin-remove-html-extension)
+
+- [vuepress-plugin-blog-sync：自动生成vuepress目录/导航栏](https://github.com/flytam/vuepress-plugin-blog-sync)
