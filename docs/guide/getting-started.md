@@ -1,7 +1,7 @@
 # 快速上手
 
 ::: warning 更新时间
-最近更新：2023-6-28
+最近更新：2023-7-3
 
 搭建版本：v2.0-beta.63
 :::
@@ -31,11 +31,9 @@
 已经安装 或者 熟练了，可以不用看此步骤
 :::
 
-### yarn/pnpm
+### pnpm/yarn
 
 通过 npm 安装 [yarn](https://www.yarnpkg.cn/) 或者 新出的[pnpm](https://pnpm.io/zh/)
-
-> 本次用yarn演示，不过建议还是用pnpm，速度会快很多
 
 
 :::: code-group
@@ -112,7 +110,7 @@ mkdir -p vuepress & cd vuepress
 ::: tip 说明
 亦可以电脑创建好一个空文件夹
 
-在当前文件夹地址栏输入`cmd` 快捷进入，或者右键 `vscode` 打开，ctrl+` 进入终端
+在当前文件夹地址栏输入`cmd` 快捷进入
 :::
 
 
@@ -135,6 +133,12 @@ yarn init
 
 #或者用一键y命令
 #yarn init -y
+```
+:::
+::: code-group-item npm
+```sh
+#初始化npm
+npm init
 ```
 :::
 ::::
@@ -165,6 +169,12 @@ yarn add -D vuepress@next
 
 #卸载
 #yarn remove vuepress
+```
+:::
+::: code-group-item npm
+```sh
+#安装含Vite
+npm install -D vuepress@next
 ```
 :::
 ::::
@@ -250,7 +260,7 @@ dist
 
 ```sh
 mkdir docs
-echo # Hello VuePress > docs/README.md
+echo '# Hello VuePress' > docs/README.md
 ```
 
 
@@ -281,6 +291,12 @@ pnpm docs:dev
 ```sh
 #开发环境
 yarn docs:dev
+```
+:::
+::: code-group-item npm
+```sh
+#开发环境
+npm docs:dev
 ```
 :::
 ::::
