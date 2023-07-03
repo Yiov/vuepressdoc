@@ -154,7 +154,7 @@ export default {
     
 
     copyCodePlugin({
-      // 插件选项
+      showInMobile: true, //是否显示在移动端
     }),
 
 
