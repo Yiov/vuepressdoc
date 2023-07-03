@@ -1,7 +1,7 @@
 # 样式美化
 
 ::: warning 更新时间
-最近更新：2023-6-28
+最近更新：2023-7-3
 
 搭建版本：v2.0-beta.63
 :::
@@ -14,7 +14,7 @@
 修改方式请参照style，一样的
 :::
 
-```
+```目录
 ├─ docs
 │  ├─ .vuepress
 │  │  └─ styles
@@ -42,7 +42,7 @@ $MQMobileNarrow: 419px !default;
 官方给的路径，是让我们新建一个 `styles` 文件夹，然后新建一个 `index.scss` 文件
 :::
 
-```
+```目录
 ├─ docs
 │  ├─ .vuepress
 │  │  └─ styles
@@ -333,7 +333,7 @@ style代码里不要含有//等注释符号
 
 其他页面也是可以更改的，可以参照官方进行更改
 
-```
+```路径
 原始路径：node_modules\@vuepress\theme-default\lib\client\styles
 ```
 
@@ -345,7 +345,7 @@ style代码里不要含有//等注释符号
 我们以`侧边栏导航`为例，看目录
 
 
-```
+```目录
 ├─ docs
 │  ├─ .vuepress
 │  │  └─ configs
@@ -433,7 +433,7 @@ export default {
 
 我们以 `主页` 布局演示
 
-```
+```目录
 ├─ docs
 │  ├─ .vuepress
 │  │  └─ components
@@ -467,6 +467,6 @@ export default ({
 ```
 
 
-```
+```路径
 原始路径：node_modules\@vuepress\theme-default\lib\client\components
 ```
