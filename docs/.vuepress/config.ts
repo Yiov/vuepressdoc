@@ -30,7 +30,7 @@ export default {
     '/': {
       lang: 'zh-CN',
       title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器',
+      description: '全程图文教程，轻松搭建文档',
     },
     '/en/': {
       lang: 'en-US',
