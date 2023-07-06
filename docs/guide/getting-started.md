@@ -9,27 +9,23 @@
 那我们就来学习如何的搭建vuepress，就是你现在看到的这种文档网站
 
 
-## 工具
+## 前期工作
+
+### 工具
 
 ::: tip 说明
 已经安装 或者 熟练了，可以不用看此步骤
 :::
 
-* [安装nodejs](https://yiov.github.io/website/nodejs#window%E5%AE%89%E8%A3%85)  [必装，`v18.14.2` 报错，于是退选了<Badge type="warning" text="v16.19.1" vertical="middle" />]
+* 必装：[安装nodejs](https://yiov.github.io/website/nodejs#window%E5%AE%89%E8%A3%85)
 
 
-* [安装vscode](https://yiov.github.io/daily/VSCode/)  [建议安装]
+* 建议安装：[安装vscode](https://yiov.github.io/daily/VSCode/)
 
 
-* [安装git](https://yiov.github.io/daily/git)  [可选]
+* 可选安装：[安装git](https://yiov.github.io/daily/git)
 
 
-
-## 准备
-
-::: tip 说明
-已经安装 或者 熟练了，可以不用看此步骤
-:::
 
 ### pnpm/yarn
 
@@ -61,22 +57,22 @@ yarn -v
 
 ### 创建目录
 
-先WIN+R键，输入cmd
+win键+R键，调出命令运行框，输入 `cmd`
 
 ![](./vuepress-03.png)
 
 
-确定一个盘符，我是放f盘符，回车
+先进入任意盘符，比如 F 盘
 
 ```sh
-#盘符可以自己定
+#盘符可以自定义 回车进入
 f:
 ```
 
 ![](./vuepress-04.png)
 
 
-创建vuepress目录，名字可以自己定
+再创建文件夹名
 
 
 ```sh
@@ -87,35 +83,31 @@ mkdir vuepress
 cd vuepress
 ```
 
-:::: tip 说明
-我为了便于分类我还创建了github目录，然后又在目录里新建了vuepress文件夹
+::: tip 说明
+这样我的目录路径为 `F:\vuepress`
 
 觉得麻烦的可以直接电脑创建
+:::
 
 ::: details 我的目录参考
 ```sh
 #创建Github目录并进入
 mkdir -p Github & cd Github
 
-#创建vuepress目录并进入
+#创建vuepress子目录并进入
 mkdir -p vuepress & cd vuepress
 ```
-:::
 ::::
 
 
 ![](./vuepress-05.png)
 
 
-::: tip 说明
-亦可以电脑创建好一个空文件夹
-
-在当前文件夹地址栏输入`cmd` 快捷进入
-:::
 
 
+## 开始安装
 
-## 安装
+我们在目录上方的地址栏输入 cmd 可以快捷打开
 
 ### 初始化
 
@@ -204,7 +196,7 @@ npm install -D vuepress@next
 ![](./vuepress-08.png)
 
 
-### .gitignore
+### git忽略项
 
 添加.gitignore文件，主要用于上传到gitee/github
 
@@ -301,13 +293,21 @@ npm docs:dev
 :::
 ::::
 
-VuePress会在本地启动一个热重载的开发服务器，当你修改你的 Markdown 文件时，浏览器中的内容也会自动更新
+VuePress会在本地启动一个8080端口的热重载开发服务器
+
+::: tip 说明
+当你修改文件时，浏览器中的内容也会自动更新
+:::
 
 [http://localhost:8080](http://localhost:8080)
 
 ![](./vuepress-11.png)
 
 成功看到页面，就说明我们的vuepress就搭建完成了
+
+::: warning 注意
+接下来我们可以关闭cmd，全程用vscode了
+:::
 
 ![](./vuepress-12.png)
 
