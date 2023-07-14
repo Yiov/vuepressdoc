@@ -60,6 +60,7 @@ export default {
               '/guide/getting-started.md', 
               '/guide/configuration.md',
               '/guide/page.md',
+              '/guide/frontmatter.md',
             ]
           },
           {
@@ -75,10 +76,12 @@ export default {
           },
           {
             //第3组名称(不可点击)
-            text: '其他',
+            text: '其他站点',
             //第1组导航标签
             children: [
-              '/guide/vitepress.md', 
+              { text: 'VitePress文档', link: 'https://yiov.github.io/vitepress/' },
+              { text: '劝学录教程', link: 'https://yiov.github.io/' },
+              { text: '个人主页', link: 'https://yingyayi.com/' },
             ],
           },
          ],
