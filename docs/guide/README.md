@@ -8,13 +8,16 @@
 :::
 
 
-## 始前建言
+## 简介
 
-在阅读本章节之前，请确保你已经对 `Markdown` 有所了解，否则你会因为理解难而无从下手。
+VuePress 是一个以 Markdown 为中心的静态网站生成器。你可以使用 Markdown 来书写内容（如文档、博客等），然后 VuePress 会帮助你生成一个静态网站来展示它们
+
+
+## Markdown
 
 如果你还不了解 `Markdown` ，请先学习一些 Markdown 教程
 
-* PC端 ： [Typora·已收费](https://typoraio.cn/)丨[VSCode·免费](../VSCode/README.md)
+* PC端 ： [Typora·已收费](https://typoraio.cn/)丨[VSCode·免费](https://yiov.github.io/daily/VSCode)
 
 * 手机端：[Mweb·IOS](https://zh.mweb.im/)丨[Markor·安卓](https://github.com/gsantner/markor/releases)
 
@@ -23,23 +26,13 @@
 * 参考教程：[https://yiov.github.io/daily/markdown/](https://yiov.github.io/daily/markdown/)
 
 
-## Vuepress
+## Vuepress <Badge type="warning" text="v2.0" vertical="top" />
 
 
-### 起因
-
-由于我的 [github](https://github.com/Yiov/notes) 上的文章多找起来繁琐，就想到搭建一个网站，方便查阅
-  
-然而我在github上都是用的 `markdown` 编写文章，而搭建博客的话又要重新写一遍，要疯
+在 [github](https://github.com/Yiov/notes) 上写的文章，没有搜索，是硬伤
 
 
-### 缘来
-
-直到发现了 [vuepress](https://github.com/vuepress/vuepress-next) <Badge type="warning" text="v2.0" vertical="top" /> 就是基于markdown语法，这就是传说中的梦中情人吧
-
-::: tip 版本说明
-我放弃v1版的主要原因是：无深色主题
-:::
+直到发现了 [vuepress v2.0](https://github.com/vuepress/vuepress-next) 就是基于markdown语法，真是棒棒！！
 
 
 * 官方V2.0版文档：[https://v2.vuepress.vuejs.org/zh/](https://v2.vuepress.vuejs.org/zh/)
