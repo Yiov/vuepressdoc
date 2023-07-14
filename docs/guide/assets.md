@@ -6,44 +6,46 @@
 搭建版本：v2.0-beta.63
 :::
 
-主要讲一下github，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://v2.vuepress.vuejs.org/zh/guide/deployment.html)
+主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://v2.vuepress.vuejs.org/zh/guide/deployment.html)
 
 
-## Base Helper
+## Base
 
 ::: warning 注意
+
 base必须配置，否则打包会丢失css样式！！
 
-如果是放在`/`根目录，本地预览文件就必须在在当前盘符，比如F盘，或者放在服务器网站根目录预览
+根目录配置 `/`，那么对应 `https://yiov.github.io/`
 
-放在仓库,base就必须配置成仓库名！本地无法预览，上传到仓库后预览即可
-
+仓库 `vitepress` 配置 `/vitepress/` ，那么对应 `https://yiov.github.io/vitepress`
 :::
 
-一般情况下，我们github部署都是在根路径下，默认的配置是：
+我们根据自己的需求，选择相应的的配置
 
-```ts{2}
+```ts{2-3}
 export default {
   base: '/', //网站部署的路径，默认根目录
+  // base: '/vuepress/', //网站部署到github的vuepress这个仓库里
 }
 ```
 
-访问的网址就是：[https://yiov.github.io/](https://yiov.github.io/)
+
+::: warning 注意
+如果你base设置成其他仓库后，你的fav图标也要变动一下
+:::
 
 
-但如果不是根路径，比如某个仓库 `vuepress2` 那么配置要更改为
-
-```ts{2}
+```ts{2,6}
 export default {
-  base: '/vuepress2/', //网站部署在仓库
+  base: '/vuepress/', //网站部署在vuepress仓库
 
   head: [['link', 
   //favicon图标也要改成仓库名路径，否则丢失
-  { rel: 'icon', href: '/vuepress2/images/logo.png' },]],
+  { rel: 'icon', href: '/vuepress/images/logo.png' },]],
 }
 ```
 
-访问的网址就是：[https://yiov.github.io/vuepress2/](https://yiov.github.io/vuepress2/)
+
 
 
 
