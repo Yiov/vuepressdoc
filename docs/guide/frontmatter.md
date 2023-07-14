@@ -167,7 +167,7 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 footerHtml: true
 
-footer: Copyright © 2023 备案号：<a href="https://beian.miit.gov.cn/">京****号</a>
+footer: Copyright © 2023 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>
 ---
 ```
 
