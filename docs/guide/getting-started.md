@@ -89,15 +89,7 @@ cd vuepress
 觉得麻烦的可以直接电脑创建
 :::
 
-::: details 我的目录参考
-```sh
-#创建Github目录并进入
-mkdir -p Github & cd Github
 
-#创建vuepress子目录并进入
-mkdir -p vuepress & cd vuepress
-```
-::::
 
 
 ![](./vuepress-05.png)
@@ -107,7 +99,7 @@ mkdir -p vuepress & cd vuepress
 
 ## 开始安装
 
-我们在目录上方的地址栏输入 cmd 可以快捷打开
+我们在目录上方的地址栏输入 `cmd` 可以快捷打开
 
 ### 初始化
 
@@ -185,8 +177,7 @@ npm install -D vuepress@next
 执行命令 `docs:build`，就会运行 `vuepress build docs`
 :::
 
-```json{3-4}
-,
+```json{2-3}
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
@@ -229,7 +220,7 @@ echo dist >> .gitignore
 
 输入我们忽略的dist文件即可，save保存即可
 
-```忽略项
+```
 node_modules
 .temp
 .cache
@@ -299,7 +290,7 @@ VuePress会在本地启动一个8080端口的热重载开发服务器
 当你修改文件时，浏览器中的内容也会自动更新
 :::
 
-[http://localhost:8080](http://localhost:8080)
+`http://localhost:8080`
 
 ![](./vuepress-11.png)
 
