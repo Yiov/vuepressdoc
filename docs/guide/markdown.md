@@ -37,7 +37,7 @@ export default {
 对于指向内部 Markdown 文件的链接，尽可能使用相对路径，而不是绝对路径
 :::
 
-```目录
+```
 ├─ docs
 │  ├─ .vuepress
 │  ├─ guide
@@ -164,7 +164,7 @@ markdown: {
 ![](./hero.png)
 
 
-如果你想引用其他目录，可以使用相对路径，比如：
+如果你想引用其他目录，可以使用完整的路径，比如：
 
 输入：
 
@@ -188,7 +188,7 @@ markdown: {
 实在你想改变目录，在config.ts添加如下配置
 ::::
 
-```ts{4}
+```ts{1,4}
 import { getDirname, path } from '@vuepress/utils'
 
 export default {
@@ -212,7 +212,7 @@ export default {
 
 
 
-### 依赖包和路径别名
+### 依赖包
 
 尽管这不是常见用法，但是你可以从依赖包中引用图片
 
@@ -227,6 +227,9 @@ export default {
 ```md
 <img src="package-name/image.png" alt="来自依赖包的图片">
 ```
+
+
+### 路径别名
 
 在配置文件中设置的路径别名也同样支持更改
 
@@ -250,7 +253,7 @@ npm i -D @vuepress/utils@next
 ::::
 
 
-```ts{6-8}
+```ts{1,3,6-8}
 import { getDirname, path } from '@vuepress/utils'
 
 const __dirname = getDirname(import.meta.url)
@@ -267,6 +270,18 @@ export default defineUserConfig({
 ```md
 <img src="@目录名/image.png" alt="来自路径别名的图片">
 ```
+
+
+### Markdown高亮
+
+查看安装使用方法 [点我跳转至：插件](./plugin.md#markdown高亮) 
+
+
+
+
+
+
+
 
 
 
@@ -449,17 +464,18 @@ export default {
 
 ### 分组代码
 
-这里使用到里主题集成的自定义容器
+也叫代码块嵌套，这里使用到里主题集成的自定义容器
 
 使用 `code-group` 包裹
 ```md
 :::: code-group
+这里是分组内容
 ::::
 ```
 
 使用`code-group-item` 列出
 ```md
-::: code-group-item
+::: code-group-item 这里是分组标题
 :::
 ```
 
@@ -574,77 +590,10 @@ npm install
 </CodeGroup>
 
 
-### v-pre
-
-
-VuePress 默认会在你的代码块添加 v-pre 指令，可以在代码块添加 `:v-pre` / `:no-v-pre` 标记来覆盖配置项中的设置
-
-输入：
-
-````md
-```md
-<!-- 默认情况下，这里会被保持原样 -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-```md:no-v-pre
-<!-- 这里会被 Vue 编译 -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-```js:no-v-pre
-// 由于 JS 代码高亮，这里不会被正确编译
-const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
-```
-````
-
-输出：
-
-```md
-<!-- 默认情况下，这里会被保持原样 -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-```md:no-v-pre
-<!-- 这里会被 Vue 编译 -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-```js:no-v-pre
-// 由于 JS 代码高亮，这里不会被正确编译
-const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
-```
 
 
 
-
-## 进阶功能
-
-
-### markdown高亮
-
-[点我跳转至：插件](./plugin.md#markdown高亮) 查看安装使用方法
-
-
-### vue模板语法
-
-在此Markdown 中允许直接使用 Vue 模板语法
-
-输入：
-
-```md
-一加一等于： {{ 1 + 1 }}
-
-<span v-for="i in 3"> span: {{ i }} </span>
-```
-
-
-输出：
-
-
-一加一等于： {{ 1 + 1 }}
-
-<span v-for="i in 3"> span: {{ i }} </span>
+## 容器
 
 
 
@@ -680,7 +629,7 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 
 
 
-### 容器：提示
+### 提示标签
 
 原markdown代码为 `>`
 
@@ -723,7 +672,7 @@ const onePlusTwoPlusThree = {{ 1 + 2 + 3 }}
 :::
 
 
-### 容器：收缩
+### 收缩/展开
 
 使用的也是 `details` 打码，原来的使用方式：
 
